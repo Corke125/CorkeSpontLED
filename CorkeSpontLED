@@ -1,0 +1,20 @@
+int trig_pin = 12, tmin = 200, tmax = 5000;
+long T = 0, Tfinish = 7200000, duration = 100;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(trig_pin, OUTPUT);
+  digitalWrite(trig_pin, LOW);
+  while(T<Tfinish)
+  {
+    digitalWrite(trig_pin, HIGH);
+    delay(duration);
+    digitalWrite(trig_pin, LOW);
+    long isi = random(tmin, tmax);
+    delay(isi);    
+    T = T + duration + isi;
+  }
+}
+
+void loop() {
+}
